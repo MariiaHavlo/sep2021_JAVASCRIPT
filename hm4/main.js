@@ -161,7 +161,7 @@
 //     let summ = 0;
 //
 //     for (let number of items){
-//         summ+=number/2;
+//         summ+=number/items.length;
 //     }
 //     return summ;
 // }
@@ -207,13 +207,14 @@
 
 // - Функція приймає масив та робить з нього новий масив в зворотньому порядку. [1,2,3] -> [3, 2, 1].
 // let numbers = [1,2,3,4,5,6,7];
-//
+// let newArr = [];
 // function array(item){
 //     for (let i = item.length-1; i>=0; i--){
-//         document.write(item[i]);
+//         let itemElement = item[i];
+//         newArr.push(itemElement);
+//         console.log(newArr);
 //     }
 // }
-//
 // array(numbers);
 
 // .......................additional..................
@@ -227,42 +228,65 @@
 // }
 // array(6,45);
 
+//
+// - створити функцію  яка приймає два масиви та скаладає значення елементів з однаковими індексами  та повертає новий результуючий масив.
+//     EXAMPLE:
+// [1,2,3,4]
+//     [2,3,4,5]
+// результат
+//     [3,5,7,9]
+
+
+// let arr1=[1,2,3,4];
+// let arr2 = [2,3,4,5];
+// let arr3 = [];
+//
+// function arr(arr1,arr2){
+//     for (let i=0,b=0; i<arr1.length,b<arr2.length;i++,b++){
+//         arr3.push(arr1[i]+arr2[b]);
+//     }
+//     console.log(arr3);
+//     return arr3;
+// }
+// arr(arr1,arr2);
 
 // - Створити функцію яка приймає масив будь яких объектів, та повертає масив ключів всіх обєктів
 // EXAMPLE:
 //     [{name: 'Dima', age: 13}, {model: 'Camry'}]  ===> [ name, age, model ]
-// let user = [{name: 'Dima', age: 13}, {model: 'Camry'},
-// {name: 'Yana', age: 22}, {model: 'Camry'}
-// ];
+
+
+// let user = [{name: 'Dima', age: 13}, {model: 'Camry'}];
+// let newArr = [];
+// function Arr(item){
+//     for (let i=0;i<item.length;i++){
+//         let itemIndex = item[i];
+//         for (let itemKey in itemIndex){
+//             newArr.push(itemKey);
 //
-// function array(items){
-//     for (let userInfo of items){
-//         for (let key in userInfo){
-// console.log(key);
 //         }
 //     }
-// return key;
+//     console.log(newArr);
+//     return newArr;
+//
 // }
-// array(user);
+// Arr(user);
+
 
 //
 //     - Створити функцію яка приймає масив будь яких объектів, та повертає масив значень всіх обєктів
 // EXAMPLE:
 //     [{name: 'Dima', age: 13}, {model: 'Camry'}]  ===> [ Dima, 13, Camry ]
-
-// let user = [{name: 'Dima', age: 13}, {model: 'Camry'},
-//     {name: 'Yana', age: 22}, {model: 'Camry'}
-// ];
-// let userKey = [];
-// function array(items){
-//     for ( let userInfo of items){
 //
-//         for ( let key in userInfo){
-//             console.log(userInfo[key]);
+// let user = [{name: 'Dima', age: 13}, {model: 'Camry'}];
+// let newArr=[];
+// function arr(item){
+//     for (let i =0; i<item.length; i++){
+//         let itemIndex = item[i];
+//         for (let itemKey in itemIndex){
+//             newArr.push(itemIndex[itemKey]);
 //         }
 //     }
-//     return userInfo[key];
-//
-//
+//     console.log(newArr);
+//     return newArr;
 // }
-// array(user);
+// arr(user);
