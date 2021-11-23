@@ -161,9 +161,9 @@
 //     let summ = 0;
 //
 //     for (let number of items){
-//         summ+=number/items.length;
+//         summ+=number;
 //     }
-//     return summ;
+//     return summ/items.length;
 // }
 // console.log(Array(arr) );
 
@@ -186,9 +186,9 @@
 
 // - створити функцію яка заповнює масив рандомними числами
 // (цей код генерує рандомні числа в діапазоні від 0 до 100 - Math.round(Math.random()*100)) та виводить його.
-// function randomizer(size,diapazon){
+// function randomizer(size,diapason){
 //     for (let i=0;i< size;i++){
-//         let r = Math.round(Math.random()*diapazon);
+//         let r = Math.round(Math.random()*diapason);
 //         document.write(`<div>${r}</div>`);
 //     }
 // }
