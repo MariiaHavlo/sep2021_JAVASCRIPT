@@ -203,4 +203,78 @@
 // }
 // reverse(arr);
 
+// ................................additional...................................
+// - Дано натуральное число n. Выведите все числа от 1 до n.
+// let number = (n) =>{
+//     if (n>=1){
+//         for (let i=1;i<=n;i++){
+//             console.log(i);
+//         }
+//     }else {
+//         console.log('error');
+//     }
+// }
+// number(80);
+// - Даны два целых числа A и В . Выведите все числа от A до B включительно, в порядке возрастания, если A < B, или в порядке убывания в противном случае.
+//
+// let iterator = (a,b) =>{
+//     if (a>b){
+//        for (let i=a; i>=b; i--){
+//            console.log(i);
+//        }
+//     }else if (a<b){
+//         for (let j=a; j<=b; j++){
+//             console.log(j);
+//         }
+//     }
+// }
+// iterator(40, 10);
+//
+// -   функція Приймає масив та число "i", та міняє місцями об`єкт який знаходиться в індексі "i" на "i+1"
+//   EXAMPLE:
+//   foo([9,8,0,4], 0) // ==> [ 8, 9, 0, 4 ]
+//   foo([9,8,0,4], 1) // ==> [ 9 ,0, 8, 4 ]
+//   foo([9,8,0,4], 2) // ==> [ 9, 8, 4, 0 ]
+//
+
+// let foo = (array, number) => {
+//     for (let i = 0; i <= array.length; i++) {
+//         if (i === number) {
+//             let item = array[i];
+//             array[i] = array[i + 1];
+//             array[i + 1] = item;
+//             console.log(array)
+//         }
+//     }
+// }
+// foo([9, 8, 0, 4], 0);
+
+// foo([9,8,0,4], 1) // ==> [ 9 ,0, 8, 4 ]
+// let foo = (array,number) =>{
+//     for (let i = 1; i<=array.length;i++){
+//         if (i===number){
+//             let item = array[i];
+//             array[i] = array[i + 1];
+//             array[i + 1] = item;
+//             console.log(array);
+//         }
+//
+//     }
+// }
+// foo([9,8,0,4],1);
+
+// foo([9,8,0,4], 2) // ==> [ 9, 8, 4, 0 ]
+// let foo = (array,number) =>{
+//     for (let i = 2; i<=array.length;i++){
+//         if (i===number){
+//             let item = array[i];
+//             array[i] =array[i+1];
+//             array[i+1] = item;
+//             console.log(array);
+//
+//         }
+//     }
+// }
+// foo([9,8,0,4],2);
+
 
