@@ -49,7 +49,7 @@
 // - Створити 3 инпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк, третій вмиіст ячеєк.
 //     При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом. --
 // (Додатковачастина для завдання)
-//
+
 let form = document.forms.createTable;
 let line = form.lines;
 let row = form.box;
@@ -84,49 +84,6 @@ form.onsubmit = function (e) {
 form.append(line, row, boxContent, button);
 
 
-// 2 variant.....................
-//
-//
-// let lines = document.createElement('input');
-// lines.setAttribute('name', ' lines');
-//
-// let rows = document.createElement('input');
-// rows.setAttribute('name', 'rows');
-//
-// let content = document.createElement('input');
-// content.setAttribute('name', 'content')
-//
-// let button = document.createElement('button');
-// button.innerText = 'create table';
-//
-// button.addEventListener(("click"), function () {
-//     let tr = lines.value;
-//     let td = rows.value;
-//     let boxContent = content.value;
-//
-//     function createTale(tr, td, boxContent) {
-//         let divTable = document.createElement('div');
-//         let table = document.createElement('table');
-//
-//         document.body.appendChild(divTable);
-//         divTable.appendChild(table);
-//
-//
-//         for (let i = 0; i < td; i++) {
-//             let tr = document.createElement('tr');
-//             table.appendChild(tr);
-//
-//             for (let j = 0; j < td; j++) {
-//                 let td = document.createElement('td');
-//                 td.innerText = `${boxContent}`;
-//                 tr.appendChild(td);
-//             }
-//         }
-//
-//     }
-//
-//     createTale(tr, td, boxContent);
-// })
 
 
 // - Сворити масив не цензцрних слів.
