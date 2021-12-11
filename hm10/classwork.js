@@ -30,12 +30,12 @@
 // btn.innerText = 'save';
 //
 // btn.addEventListener(('click'),function (){
-// console.log(document.forms.form1.input1.value);
-// console.log(document.forms.form1.input2.value);
+// console.log(document.forms['form1'] ['input1.value']);
+// console.log(document.forms['form1'] ['input2.value']);
 // })
 // btn.addEventListener(('click'),function (){
-// console.log(document.forms.form2.input3.value);
-// console.log(document.forms.form2.input4.value);
+// console.log(document.forms['form2'] ['input3.value']);
+// console.log(document.forms['form2'] ['input4.value']);
 // });
 //
 // document.body.append(container1,container2);
@@ -50,33 +50,84 @@
 //     При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом. --
 // (Додатковачастина для завдання)
 //
-// document.forms.createTable;
+let form = document.forms.createTable;
+let line = form.lines;
+let row = form.box;
+let boxContent = form.content;
+let button = document.getElementsByTagName('button')[0];
+console.log(form);
+
+form.onsubmit = function (e) {
+    e.preventDefault();
+    let lines = +line.value;
+    let box = +row.value;
+    let content = boxContent.value;
+    console.log(lines, box, content);
+
+    let table = document.createElement('table');
+    let tableDiv = document.createElement('div');
+
+    for (let i = 0; i < lines; i++) {
+        let tr = document.createElement('tr');
+        for (let j = 0; j < box; j++) {
+            let td = document.createElement('td');
+
+            tr.appendChild(td);
+            td.innerText = (content);
+        }
+        table.appendChild(tr);
+    }
+    document.body.appendChild(table);
+    table.appendChild(tableDiv);
+}
+
+form.append(line, row, boxContent, button);
+
+
+// 2 variant.....................
 //
-// form.onsubmit = function (e) {
-//     e.preventDefault();
-//     let lines = +lines.value;
-//     let box = +numberBox;
-//     let content = contentBox.value;
-//     console.log(lines, box, content);
 //
-//     let table = document.createElement('table');
-//     let tableDiv = document.createElement('div');
+// let lines = document.createElement('input');
+// lines.setAttribute('name', ' lines');
 //
-//     for (let i = 0; i < lines; i++) {
-//         let tr = document.createElement('tr');
-//         for (let j = 0; j < box; j++) {
-//             let td = document.createElement('td');
+// let rows = document.createElement('input');
+// rows.setAttribute('name', 'rows');
 //
-//             tr.appendChild(td);
-//             td.innerText = (content);
+// let content = document.createElement('input');
+// content.setAttribute('name', 'content')
+//
+// let button = document.createElement('button');
+// button.innerText = 'create table';
+//
+// button.addEventListener(("click"), function () {
+//     let tr = lines.value;
+//     let td = rows.value;
+//     let boxContent = content.value;
+//
+//     function createTale(tr, td, boxContent) {
+//         let divTable = document.createElement('div');
+//         let table = document.createElement('table');
+//
+//         document.body.appendChild(divTable);
+//         divTable.appendChild(table);
+//
+//
+//         for (let i = 0; i < td; i++) {
+//             let tr = document.createElement('tr');
+//             table.appendChild(tr);
+//
+//             for (let j = 0; j < td; j++) {
+//                 let td = document.createElement('td');
+//                 td.innerText = `${boxContent}`;
+//                 tr.appendChild(td);
+//             }
 //         }
-//         table.appendChild(tr);
-//     }
-//     document.body.appendChild(table);
-//     table.appendChild(tableDiv);
-// }
 //
-// form.append(numberLines, numberBox, contentBox, button);
+//     }
+//
+//     createTale(tr, td, boxContent);
+// })
+
 
 // - Сворити масив не цензцрних слів.
 //     Сворити інпут текстового типу.
@@ -100,6 +151,9 @@
 //         }
 //     }
 // })
+//
+//
+
 
 //
 // - Сворити масив не цензцрних слів.

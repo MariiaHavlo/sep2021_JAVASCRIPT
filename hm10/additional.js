@@ -38,6 +38,56 @@
 // }
 
 
+document.forms.createTable;
+//
+// form.onsubmit = function (e) {
+//     e.preventDefault();
+//     let lines = +lines.value;
+//     let box = +numberBox;
+//     let content = contentBox.value;
+//     console.log(lines, box, content);
+//
+//     let table = document.createElement('table');
+//     let tableDiv = document.createElement('div');
+//
+//     for (let i = 0; i < lines; i++) {
+//         let tr = document.createElement('tr');
+//         for (let j = 0; j < box; j++) {
+//             let td = document.createElement('td');
+//
+//             tr.appendChild(td);
+//             td.innerText = (content);
+//         }
+//         table.appendChild(tr);
+//     }
+//     document.body.appendChild(table);
+//     table.appendChild(tableDiv);
+// }
+//
+// form.append(numberLines, numberBox, contentBox, button);
+
+// - Сворити масив не цензцрних слів.
+//     Сворити інпут текстового типу.
+//     Якщо людина вводить слово і воно міститься в масиві не цензурних слів
+// кинути алерт з попередженням.
+//     Перевірку робити при натисканні на кнопку +++
+//
+// let arr = ['лайно', 'йолоп', 'дурепа', 'покидьок'];
+//
+// let input = document.createElement('input');
+// let button = document.createElement('button');
+// button.innerText = 'Перевірити';
+// document.body.append(input, button);
+//
+// button.addEventListener(('click'), function () {
+//     let value = input.value;
+//
+//     for (let item of arr) {
+//         if (item === value) {
+//             alert('Некоректне введення');
+//         }
+//     }
+// })
 
 
 
