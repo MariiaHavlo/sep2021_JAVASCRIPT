@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+.wrap{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    box-sizing: border-box;
+    row-gap: 10px;
+
+}
+
+.userDiv{
+    width: 300px;
+    border: 2px solid olivedrab;
+}
+
+
+    </style>
+</head>
+<body>
+
+<script>
+    // 1.
+    // Отримати відповідь з цього ресурсу відповідь, та вивести в документ як в прикладі на занятті
+    // https://jsonplaceholder.typicode.com/users
+    //     кожному елементу юзера створити кнопку, при клику на яку в окремий блок виводяться всі пости поточного юзера.
+    //     Кожному елементу post створити кнопку, при клику на яку в окремий блок виводяться всі коментарі поточного поста
+   let wrap = document.createElement('div');
+   wrap.classList.add('wrap');
+
+
+    fetch('https://jsonplaceholder.typicode.com/users')
+        .then(response => response.json())
+        .then(arrayUsers => {
+            console.log(arrayUsers);
+
+            for (let user of arrayUsers) {
+                let infoDiv = document.createElement('div');
+                infoDiv.classList.add('userDiv');
+                for (let userKey in user) {
+                    let userDiv = document.createElement('div')
+                    if (typeof user[userKey] !== 'object') {
+                        userDiv.innerHTML = `<h4>${userKey}:${user[userKey]}</h4>`
+
+                    } else if (userKey === 'address') {
+                        for (let addressKey in user.address) {
+                            let addressDiv = document.createElement('div');
+                            if (typeof user.address[addressKey] !== 'object') {
+                                addressDiv.innerText = `${addressKey}:${user.address[addressKey]}`
+                            } else {
+                                for (let geo in user.address.geo) {
+                                    addressDiv.innerText = `${geo}:${user.address.geo[geo]}`;
+                                }
+                            }
+                            userDiv.appendChild(addressDiv);
+                        }
+
+                    } else if (userKey === 'company') {
+                        for (let companyKey in user.company) {
+                            let companyDiv = document.createElement('div');
+                            if (typeof user.company[companyKey] !== 'object') {
+                                companyDiv.innerText = `${companyKey}:${user.company[companyKey]}`
+                            }
+
+                            userDiv.appendChild(companyDiv);
+                        }
+                    }
+
+                    infoDiv.appendChild(userDiv)
+                }
+
+                let userButton = document.createElement('button');
+                userButton.innerText = 'posts';
+
+                userButton.onclick = function () {
+                    fetch('https://jsonplaceholder.typicode.com/users/' + user.id + '/posts')
+                        .then(response => response.json())
+                        .then(posts => {
+
+                            for (const post of posts) {
+                                let postDiv = document.createElement('div');
+
+                                postDiv.innerHTML = `
+                           <h2>ID:${post.id}</h2>
+                           <h1>Title:${post.title}</h1>
+                           <p>Body:${post.body}</p>
+                            `;
+
+                                let postButton  = document.createElement('button');
+                                postButton.innerText = 'comments';
+
+                                postButton.onclick = function (){
+                                    fetch('https://jsonplaceholder.typicode.com/posts/' + post.id + '/comments')
+                                    .then(response =>response.json())
+                                    .then(comments =>{
+
+                                        for (const comment of comments){
+                                            let commentsDiv = document.createElement('div');
+
+                                            commentsDiv.innerHTML = `
+                                            <h2>Id:${comment.id}</h2>
+                                            <h1>Name:${comment.name}</h1>
+                                            <p>Email:${comment.email}</p>
+                                            <p>Body:${comment.body}</p>
+                                            `;
+
+                                            postDiv.appendChild(commentsDiv);
+                                        }
+                                    })
+                                }
+
+                                postDiv.appendChild(postButton);
+
+                                infoDiv.appendChild(postDiv);
+
+                            }
+
+                        })
+
+                }
+
+
+                infoDiv.appendChild(userButton);
+
+                wrap.appendChild(infoDiv);
+            }
+        })
+    document.body.appendChild(wrap);
+
+</script>
+</body>
+</html>
