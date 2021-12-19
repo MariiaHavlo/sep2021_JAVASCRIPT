@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    // Зробити свій розпорядок дня. // // У вас має бути більше 10 асинхронних дій з рандомними затримками.
+    // Вам необхідно синхронізувати всі свої дії за допомогою промісів та async await (Код має бути написаний окремо),колбеків
+    // Затримка має бути НЕ в порядку зростання, а будь яка. При тому ваші дії мають бути синхронізовані.
+    // // Напиклад. // Прикнутись - 0.3с // Поснідати - 1с // Піти в душ - 0.5с // Дочекатись автобус - 3с // Пообідати
+    // - 1с // // І так далі
+    //
+    // let money = 500;
+    //
+    // function wakeUp(goodMorning){
+    //     return new Promise((resolve, reject) => {
+    //
+    //         setTimeout(()=>{
+    //
+    //             if (goodMorning){
+    //                 resolve('good morning')
+    //             }else {
+    //                 reject('sleep')
+    //             }
+    //
+    //         },400)
+    //     })
+    // }
+    //
+    // function eat(thereIsFood){
+    //     return new Promise((resolve, reject) => {
+    //
+    //         setTimeout(()=>{
+    //
+    //             if (thereIsFood){
+    //                 resolve('Om nom nom')
+    //             }else {
+    //                 reject('hungry')
+    //             }
+    //
+    //         },1000)
+    //
+    //     })
+    // }
+    //
+    // function takeAShower(thereIsWater){
+    //     return new Promise((resolve, reject) => {
+    //
+    //         setTimeout(()=>{
+    //
+    //             if (thereIsWater){
+    //                 resolve('I Washed')
+    //             }else {
+    //                 reject('Opps')
+    //             }
+    //
+    //         },700)
+    //
+    //     })
+    // }
+    //
+    // function takeChildToKinderGarten(kinderGartenIsOpen){
+    //     return new Promise((resolve, reject) => {
+    //
+    //         setTimeout(()=>{
+    //
+    //             if (kinderGartenIsOpen){
+    //                 resolve('Hooray')
+    //             }else {
+    //                 reject('grandmothers call')
+    //             }
+    //
+    //         },900)
+    //
+    //     })
+    // }
+    //
+    // function goWork(isJobDone){
+    //     return new Promise((resolve, reject) => {
+    //
+    //         setTimeout(()=>{
+    //
+    //             if (isJobDone){
+    //                 money+=600;
+    //                 console.log('Job Done');
+    //                 resolve(money)
+    //             }else {
+    //                 reject('work is not done')
+    //             }
+    //
+    //         },2000)
+    //
+    //     })
+    //
+    // }
+    //
+    // function goingHome(finishWork){
+    //     return new  Promise((resolve, reject) => {
+    //
+    //         setTimeout(()=>{
+    //
+    //             if (finishWork){
+    //                 resolve('going home')
+    //             }else {
+    //                 reject('work')
+    //             }
+    //
+    //         },300)
+    //
+    //     })
+    // }
+    //
+    // function studing(completedTask){
+    //
+    //     return new Promise((resolve, reject) => {
+    //
+    //         setTimeout(()=>{
+    //
+    //             if (completedTask){
+    //                 resolve('good job')
+    //             }else {
+    //                 reject('sit and study')
+    //             }
+    //
+    //         },1200)
+    //
+    //     })
+    //
+    // }
+    //
+    // function goToSleep(goodNight){
+    //
+    //     return new  Promise((resolve, reject) => {
+    //
+    //         setTimeout(()=>{
+    //
+    //             if (goodNight){
+    //                 resolve('sweet dreams')
+    //             }else {
+    //                 reject('go learn')
+    //             }
+    //
+    //         },500)
+    //
+    //     })
+    //
+    // }
+
+
+    //PROMISE//////////////////////////////////////////////////////////////
+
+    // wakeUp(true)
+    //
+    // .then(morning =>{
+    //     console.log(morning);
+    //     return eat(morning)
+    // })
+    //
+    // .then(breakfast =>{
+    //     console.log(breakfast);
+    //     return takeAShower(breakfast);
+    // })
+    // .then(shower =>{
+    //     console.log(shower);
+    //     return takeChildToKinderGarten(shower)
+    // })
+    // .then(child =>{
+    //     console.log(child);
+    //     return goWork(child)
+    // })
+    // .then(work =>{
+    //     console.log(work);
+    //     return goingHome(work)
+    // })
+    // .then(home =>{
+    //     console.log(home);
+    //     return eat(home)
+    // })
+    // .then(dinner =>{
+    //     console.log(dinner)
+    //     return studing(dinner)
+    // })
+    // .then( task =>{
+    //     console.log(task)
+    //     return takeChildToKinderGarten(task)
+    // } )
+    // .then(child =>{
+    //     console.log(child);
+    //     return eat(child)
+    // })
+    // .then(dinner =>{
+    //     console.log(dinner);
+    //     return takeAShower(dinner)
+    // })
+    // .then(shower =>{
+    //     console.log(shower);
+    //     return goToSleep(shower)
+    // })
+    // .then(night =>{
+    //     console.log(night);
+    // })
+
+    // ...................................async await..................
+
+    // async function schedule(){
+    //     let morning = await wakeUp(true);
+    //     console.log(morning);
+    //
+    //     let breakfast = await eat(morning);
+    //     console.log(breakfast);
+    //
+    //     let shower = await takeAShower(eat);
+    //     console.log(shower);
+    //
+    //     let child = await takeChildToKinderGarten(shower);
+    //     console.log(child);
+    //
+    //     let work = await goWork(child);
+    //     console.log(work);
+    //
+    //     let home = await goingHome(work);
+    //     console.log(home);
+    //
+    //     let dinner = await eat(home);
+    //     console.log(dinner);
+    //
+    //     let task = await studing(dinner);
+    //     console.log(task);
+    //
+    //     let childHome = await takeChildToKinderGarten(task);
+    //     console.log(childHome);
+    //
+    //     let supper = await eat(childHome);
+    //     console.log(supper);
+    //
+    //     let goodNight = await goToSleep(supper);
+    //     console.log(goodNight);
+
+    // }
+    // schedule();
+
+
+    // ...................callback.................
+    let money = 500;
+
+    function wakeUp(goodMorning,callback){
+
+            setTimeout(()=>{
+
+                if (goodMorning){
+                    callback(null,'good morning');
+                    return;
+
+                }
+                    callback('sleep');
+
+            },400)
+
+    }
+
+    function eat(thereIsFood,callback){
+
+            setTimeout(()=>{
+
+                if (thereIsFood){
+                    callback(null,'Om nom nom');
+                    return;
+                }
+                    callback('hungry');
+
+
+            },1000)
+
+    }
+
+    function takeAShower(thereIsWater,callback){
+
+            setTimeout(()=>{
+
+                if (thereIsWater){
+                    callback(null,'I Washed');
+                    return;
+                }
+                    callback('Opps');
+
+            },700)
+
+    }
+
+    function takeChildToKinderGarten(kinderGartenIsOpen,callback){
+
+            setTimeout(()=>{
+
+                if (kinderGartenIsOpen){
+                    callback(null,'Hooray');
+                    return;
+                }
+                    callback('grandmothers call');
+
+            },900)
+
+    }
+
+    function goWork(isJobDone,callback){
+
+            setTimeout(()=>{
+
+                if (isJobDone){
+                    money+=600;
+                    console.log('Job Done');
+                    callback(null,money);
+                    return;
+                }
+                    callback('work is not done')
+
+            },2000)
+
+    }
+
+    function goingHome(finishWork,callback){
+
+            setTimeout(()=>{
+
+                if (finishWork){
+                    callback(null,'going home');
+                    return;
+                }
+                    callback('work');
+
+            },300)
+
+    }
+
+    function studing(completedTask,callback){
+
+            setTimeout(()=>{
+
+                if (completedTask){
+                    console.log();
+                    callback(null,'good job');
+                    return;
+                }
+                    callback('sit and study');
+
+            },1200)
+
+    }
+
+    function goToSleep(goodNight,callback){
+
+            setTimeout(()=>{
+
+                if (goodNight){
+                    console.log();
+                    callback(null,'sweet dreams');
+                    return;
+                }
+                    callback('go learn');
+
+            },500)
+
+    }
+
+    wakeUp(true,(err,morning)=>{
+        if (err){
+            console.log('oops',err);
+            return;
+        }
+        console.log(morning);
+
+        eat('eggs',(err,breakfast)=>{
+            if (err){
+                console.log('oops',err);
+                return;
+            }
+            console.log(breakfast);
+
+           takeAShower('i washed',(err,shower)=>{
+               if (err){
+                   console.log('oops',err);
+                   return;
+               }
+               console.log(shower);
+
+               takeChildToKinderGarten('kindergarten',(err,child)=>{
+                   if (err){
+                       console.log('oops',err);
+                       return;
+                   }
+                   console.log(child);
+
+                   goWork(money,(err,work)=>{
+                       if (err){
+                           console.log('oops',err);
+                           return;
+                       }
+                       console.log(work);
+
+                       goingHome('work done',(err,home)=>{
+                           if (err){
+                               console.log('oops',err);
+                               return;
+                           }
+                           console.log(home);
+
+                           eat('soup',(err,dinner)=>{
+                               if (err){
+                                   console.log('oops',err);
+                                   return;
+                               }
+                               console.log(dinner);
+
+                               studing('i am studying',(err,study)=>{
+                                   if (err){
+                                       console.log('oops',err);
+                                       return;
+                                   }
+                                   console.log(study);
+
+                                   takeChildToKinderGarten('go home from kindergarten',(err,child)=>{
+                                       if (err){
+                                           console.log('oops',err);
+                                           return;
+                                       }
+                                       console.log(child);
+
+                                       eat('rice',(err,supper)=>{
+                                           if (err){
+                                               console.log('oops',err);
+                                               return;
+                                           }
+                                           console.log(supper);
+
+                                           goToSleep('sweet dreams',(err,goodNight)=>{
+                                               if (err){
+                                                   console.log('oops',err);
+                                                   return;
+                                               }
+                                               console.log(goodNight);
+                                           })
+                                       })
+                                   })
+                               })
+                           })
+                       })
+
+
+                   })
+               })
+           })
+
+
+        })
+
+
+    })
+
+</script>
+</body>
+</html>
