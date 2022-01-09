@@ -1,0 +1,31 @@
+.postInfo{
+    background-color: #a8cbbe;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+
+.commentDiv {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 10px;
+    row-gap: 10px;
+    justify-content: space-between;
+
+}
+.comentsInfo{
+    width: 230px;
+    border: .5px solid blue;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #9cbce0;
+    border-radius: 5px;
+    padding: 5px;
+}
+.comentsInfo h1{
+    font-size: 20px;
+}
+.comentsInfo p{
+    font-size: 14px;
+}

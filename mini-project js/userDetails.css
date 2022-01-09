@@ -1,0 +1,54 @@
+.container{
+    background-color: #a8cbbe;
+    padding: 5px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+.user_main_info h4{
+    color: #122f52;
+}
+.button_post{
+    width: 150px;
+    border-radius: 5px;
+    border: none;
+    height: 30px;
+    background-color: #085e56;
+    color: white;
+
+
+}
+.btnDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+}
+
+.postDiv{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    column-gap: 20px;
+    row-gap: 10px;
+
+}
+.postInfo{
+    width: 15%;
+    border: .5px solid #073b39;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.postTitle{
+color: #272328;
+    font-size: 14px;
+    padding: 5px 5px;
+}
+
+.btnPostInfo{
+background: #c2c72f;
+
+}
