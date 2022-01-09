@@ -1,7 +1,7 @@
 let button = document.getElementsByClassName('userDetails');
 
 let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-console.log(typeof favorites);
+console.log( favorites);
 
 
 let container = document.createElement('div');
@@ -39,6 +39,8 @@ for (let userKey in favorites) {
     }
 
     container.appendChild(userDiv)
+
+
 }
 
 let btnDiv = document.createElement('div');
@@ -52,7 +54,7 @@ btnDiv.appendChild(btnPost);
 
 btnPost.onclick = function () {
 
-    fetch('https://jsonplaceholder.typicode.com/posts')
+    fetch('https://jsonplaceholder.typicode.com/users/'+favorites.id+'/posts')
         .then(response => {
             return response.json();
         })
