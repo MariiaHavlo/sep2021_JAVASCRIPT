@@ -1,0 +1,29 @@
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    row-gap: 10px;
+}
+.user{
+    width: 40%;
+    border: .5px solid #504c4c;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #a8cbbe;
+}
+.userDetails{
+
+    width: 30%;
+    border-radius: 5px;
+    border: none;
+    height: 20%;
+    background-color: #085e56;
+    color: white;
+}
+.user h4{
+    color: #071f3b;
+    font-size: 22px;
+}
+.user h6{
+    color: gray;
+}
